@@ -1,0 +1,24 @@
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T174549_c1.txt: SUCCESS : 262 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T175454_c0.txt: SUCCESS : 244 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T180108_c0.txt: SUCCESS : 233 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T180711_c0.txt: SUCCESS : 234 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T181344_c0.txt: SUCCESS : 237 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_dropwizard-2.0.22_20211226T181952_c0.txt: SUCCESS : 237 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T174452_c1.txt: SUCCESS : 52 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T175402_c0.txt: SUCCESS : 51 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T180031_c0.txt: SUCCESS : 36 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T180635_c0.txt: SUCCESS : 35 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T181308_c0.txt: SUCCESS : 35 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_maven-maven-3.8.1_20211226T181916_c0.txt: SUCCESS : 35 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T175023_c1.txt: SUCCESS : 96 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T175859_c0.txt: : 56 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T180502_c0.txt: : 57 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T181106_c0.txt: SUCCESS : 86 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T181742_c0.txt: : 58 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_metrics-4.1.22_20211226T182350_c0.txt: SUCCESS : 86 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T175205_c1.txt: SUCCESS : 112 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T175956_c0.txt: SUCCESS : 34 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T180601_c0.txt: SUCCESS : 33 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T181233_c0.txt: SUCCESS : 34 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T181842_c0.txt: SUCCESS : 33 s 
+reports/run_linux-5.4.0-91-generic-x86-64-x86-64_spring-data-jdbc-2.2.1_20211226T182517_c0.txt: SUCCESS : 34 s 
