@@ -1,6 +1,6 @@
 #!/bin/bash
 
-reportsdir=$1
+reportsdir=${1:-.}
 if [ ! -d "$reportsdir" ] ; then
 	echo "Usage: $0 <reportsdir>"
 	echo "<reportsdir> must contain report directories with a stats.txt in each"
