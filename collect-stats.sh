@@ -22,7 +22,7 @@ for f in $(find "$reportsdir" -name stats.txt); do
 		printf "\ttotal\n"
 		showtitle=0
 	fi
-	echo -n "$f" | sed -e "s#/stats.txt##;s#.*/##"
+	printf "%-32s" $(echo -n "$f" | sed -e "s#/stats.txt##;s#.*/##")
 	total=0
 	for c in $(echo $categories); do
 		n=$(printf "%s" "$tim"|grep $c|sort -nk2|head -3|\
