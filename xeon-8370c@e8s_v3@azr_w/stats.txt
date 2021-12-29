@@ -1,0 +1,36 @@
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T005235_c0.txt: : 318 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T010332_c0.txt: : 302 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T011438_c0.txt: SUCCESS : 439 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T012754_c0.txt: SUCCESS : 428 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T014032_c0.txt: : 335 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T015129_c0.txt: : 329 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T025309_c0.txt: : 336 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T030449_c0.txt: 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T034047_c0.txt: SUCCESS : 452 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_dropwizard-2.0.22_20211229T035428_c0.txt: 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T005102_c0.txt: SUCCESS : 92 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T010156_c0.txt: SUCCESS : 94 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T011255_c0.txt: SUCCESS : 101 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T012611_c0.txt: SUCCESS : 101 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T013843_c0.txt: SUCCESS : 106 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T014947_c0.txt: SUCCESS : 100 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T025128_c0.txt: SUCCESS : 99 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T030305_c0.txt: SUCCESS : 102 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T033902_c0.txt: SUCCESS : 102 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_maven-maven-3.8.1_20211229T035241_c0.txt: SUCCESS : 105 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T005756_c0.txt: SUCCESS : 160 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T010836_c0.txt: SUCCESS : 169 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T012159_c0.txt: SUCCESS : 164 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T013504_c0.txt: : 132 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T014609_c0.txt: : 131 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T015701_c0.txt: : 130 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T025847_c0.txt: SUCCESS : 170 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_metrics-4.1.22_20211229T034821_c0.txt: SUCCESS : 170 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T010037_c0.txt: SUCCESS : 77 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T011127_c0.txt: SUCCESS : 86 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T012445_c0.txt: SUCCESS : 84 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T013718_c0.txt: SUCCESS : 83 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T014822_c0.txt: SUCCESS : 82 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T015914_c0.txt: SUCCESS : 85 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T030138_c0.txt: SUCCESS : 84 s 
+reports/run_mingw64-nt-10.0-17763-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20211229T035113_c0.txt: SUCCESS : 86 s 
