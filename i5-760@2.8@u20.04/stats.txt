@@ -1,0 +1,23 @@
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T032138_c1.txt: : 367 s 
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T033803_c0.txt: SUCCESS : 558 s 
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T035148_c0.txt: SUCCESS : 461 s 
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T040413_c0.txt: SUCCESS : 488 s 
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T041718_c0.txt: SUCCESS : 511 s 
+reports/run_linux-5.15.7-1-manjaro_dropwizard-2.0.22_20211231T043031_c0.txt: SUCCESS : 606 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T031907_c1.txt: SUCCESS : 121 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T033603_c0.txt: SUCCESS : 119 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T035028_c0.txt: SUCCESS : 79 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T040256_c0.txt: SUCCESS : 76 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T041555_c0.txt: SUCCESS : 82 s 
+reports/run_linux-5.15.7-1-manjaro_maven-maven-3.8.1_20211231T042906_c0.txt: SUCCESS : 83 s 
+reports/run_linux-5.15.7-1-manjaro_metrics-4.1.22_20211231T042550_c0.txt: : 119 s 
+reports/run_linux-5.15.7-1-manjaro_metrics-4.1.22_20211231T044038_c0.txt: SUCCESS : 202 s 
+reports/run_linux-5.15.7-1-manjaro_metrics-4.1.22_20211231T044624_c0.txt: SUCCESS : 176 s 
+reports/run_linux-5.15.7-1-manjaro_metrics-4.1.22_20211231T044921_c0.txt: SUCCESS : 178 s 
+reports/run_linux-5.15.7-1-manjaro_metrics-4.1.22_20211231T045220_c0.txt: SUCCESS : 181 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T033200_c1.txt: SUCCESS : 205 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T034917_c0.txt: SUCCESS : 70 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T040129_c0.txt: SUCCESS : 85 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T041426_c0.txt: SUCCESS : 88 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T042750_c0.txt: SUCCESS : 75 s 
+reports/run_linux-5.15.7-1-manjaro_spring-data-jdbc-2.2.1_20211231T044401_c0.txt: SUCCESS : 70 s 
