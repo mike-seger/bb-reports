@@ -1,0 +1,15 @@
+# Java Version
+# Maven Version
+Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
+Maven home: F:\home\.sdkman\candidates\maven\current
+Java version: 11.0.12, vendor: Oracle Corporation, runtime: F:\home\.sdkman\candidates\java\current
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+# CPU Info
+model name	: Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz
+# Memory Info
+MemTotal:       66507996 kB
+# Disk Free
+Filesystem      Size  Used Avail Use% Mounted on
+X:              892M  2.5M  890M   1% /x
+#
