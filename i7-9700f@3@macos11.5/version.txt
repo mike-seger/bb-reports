@@ -1,0 +1,15 @@
+# Java Version
+# Maven Version
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: /Users/michael/.sdkman/candidates/maven/current
+Java version: 11.0.2, vendor: Oracle Corporation, runtime: /Users/michael/.sdkman/candidates/java/11.0.2-open
+Default locale: en_GB, platform encoding: UTF-8
+OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
+# CPU Info
+machdep.cpu.brand_string: Intel(R) Core(TM) i7-9700F CPU @ 3.00GHz
+# Memory Info
+hw.memsize: 34359738368
+# Disk Free
+Filesystem     Size   Used  Avail Capacity iused      ifree %iused  Mounted on
+/dev/disk1s1  954Gi  368Gi  564Gi    40% 3276339 9996721581    0%   /System/Volumes/Data
+#
