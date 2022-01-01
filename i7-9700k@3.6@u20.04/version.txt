@@ -1,6 +1,6 @@
 # Java Version
 # Maven Version
-Apache Maven 3.8.3 (ff8e977a158738155dc465c6a97ffaf31982d739)
+Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
 Maven home: /home/michael/.sdkman/candidates/maven/current
 Java version: 11.0.12, vendor: Oracle Corporation, runtime: /home/michael/.sdkman/candidates/java/11.0.12-open
 Default locale: en_US, platform encoding: UTF-8
@@ -8,8 +8,8 @@ OS name: "linux", version: "5.4.0-91-generic", arch: "amd64", family: "unix"
 # CPU Info
 model name	: Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz
 # Memory Info
-MemTotal:       65276404 kB
+MemTotal:       65275692 kB
 # Disk Free
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sdg1       916G  234G  637G  27% /home
+tmpfs            16G  256M   16G   2% /mnt/ramdisk
 #
