@@ -1,0 +1,24 @@
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T184714_c0.txt: : 226 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T185757_c0.txt: SUCCESS : 483 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T191113_c0.txt: SUCCESS : 479 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T192435_c0.txt: SUCCESS : 477 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T193752_c0.txt: SUCCESS : 482 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_dropwizard-2.0.22_20220109T195115_c0.txt: SUCCESS : 478 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T184435_c0.txt: SUCCESS : 157 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T185644_c0.txt: SUCCESS : 72 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T191002_c0.txt: SUCCESS : 69 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T192319_c0.txt: SUCCESS : 74 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T193637_c0.txt: SUCCESS : 73 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_maven-maven-3.8.1_20220109T195000_c0.txt: SUCCESS : 73 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T185102_c0.txt: SUCCESS : 191 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T190602_c0.txt: SUCCESS : 180 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T191914_c0.txt: SUCCESS : 182 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T193233_c0.txt: SUCCESS : 181 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T194556_c0.txt: SUCCESS : 181 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_metrics-4.1.22_20220109T195915_c0.txt: SUCCESS : 181 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T185414_c0.txt: SUCCESS : 148 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T190903_c0.txt: SUCCESS : 56 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T192219_c0.txt: SUCCESS : 58 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T193537_c0.txt: SUCCESS : 58 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T194859_c0.txt: SUCCESS : 59 s 
+reports/run_mingw64-nt-10.0-19041-3.1.7-340.x86-64_spring-data-jdbc-2.2.1_20220109T200217_c0.txt: SUCCESS : 60 s 
