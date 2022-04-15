@@ -1,0 +1,15 @@
+# Java Version
+# Maven Version
+Apache Maven 3.8.3 (ff8e977a158738155dc465c6a97ffaf31982d739)
+Maven home: /Users/michael/.sdkman/candidates/maven/current
+Java version: 11.0.2, vendor: Oracle Corporation, runtime: /Users/Shared/root/develop/sdkman/candidates/java/11.0.2-open
+Default locale: en_GB, platform encoding: UTF-8
+OS name: "mac os x", version: "10.15.3", arch: "x86_64", family: "mac"
+# CPU Info
+machdep.cpu.brand_string: Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz
+# Memory Info
+hw.memsize: 17179869184
+# Disk Free
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/disk1s5    931G  215G  706G  24% /
+#
