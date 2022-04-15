@@ -1,0 +1,18 @@
+# Java Version
+# Maven Version
+Downloading https://repo1.maven.org/maven2/org/apache/maven/apache-maven/3.8.1/apache-maven-3.8.1-bin.zip
+.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/ubuntu/.m2/wrapper/dists/apache-maven-3.8.1-bin/5jr7905sp869ck60ofuug4vpod/apache-maven-3.8.1-bin.zip to /home/ubuntu/.m2/wrapper/dists/apache-maven-3.8.1-bin/5jr7905sp869ck60ofuug4vpod
+Set executable permissions for: /home/ubuntu/.m2/wrapper/dists/apache-maven-3.8.1-bin/5jr7905sp869ck60ofuug4vpod/apache-maven-3.8.1/bin/mvn
+[1mApache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)[m
+Maven home: /home/ubuntu/.m2/wrapper/dists/apache-maven-3.8.1-bin/5jr7905sp869ck60ofuug4vpod/apache-maven-3.8.1
+Java version: 11.0.12, vendor: Oracle Corporation, runtime: /home/ubuntu/.sdkman/candidates/java/11.0.12-open
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.11.0-1028-oracle", arch: "aarch64", family: "unix"
+# CPU Info
+# Memory Info
+MemTotal:       84269548 kB
+# Disk Free
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        45G  2.9G   43G   7% /
+#
