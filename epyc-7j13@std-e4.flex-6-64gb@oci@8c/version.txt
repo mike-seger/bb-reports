@@ -1,0 +1,17 @@
+# Java Version
+# M_T
+8C
+# Maven Version
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: /home/ubuntu/.m2/wrapper/dists/apache-maven-3.8.1-bin/5jr7905sp869ck60ofuug4vpod/apache-maven-3.8.1
+Java version: 11.0.12, vendor: Oracle Corporation, runtime: /home/ubuntu/.sdkman/candidates/java/11.0.12-open
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.13.0-1025-oracle", arch: "amd64", family: "unix"
+# CPU Info
+model name	: AMD EPYC 7J13 64-Core Processor
+# Memory Info
+MemTotal:       65851920 kB
+# Disk Free
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        45G  4.3G   41G  10% /
+#
