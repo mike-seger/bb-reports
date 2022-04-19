@@ -8,6 +8,7 @@ xeon-8370c@e16ds_v5@azr         	148	29	64	29	270
 i7-9700k@3.6@u20.04             	151	28	67	28	274
 epyc-7763@d16ads_v5@azr         	154	30	66	31	281
 i7-9700f@3@u20.04@r             	161	28	70	28	287
+ar5-3600@2.2@u20.04@4c          	165	29	65	29	288
 ar5-3600@2.2@u20.04             	172	30	67	30	299
 epyc-7j13@std-e4.flex-6-64gb@oci@4c	163	35	73	36	307
 epyc-7j13@std-e4.flex-6-64gb@oci@8c	163	35	74	36	308
@@ -15,8 +16,12 @@ i9-9900@3.1@macos11.5           	178	34	73	30	315
 i7-9700f@3@u20.04               	180	30	77	30	317
 i7-9700f@3@macos11.5            	185	35	70	32	322
 xeon-8370c@e8ds_v5@azr          	191	33	77	31	332
+epyc-7j13@std-e4.flex-6-16gb@oci@4c	178	39	79	40	336
+epyc-7j13@std-e4.flex-6-32gb@oci@4c	180	40	79	40	339
+epyc-7j13@std-e4.flex-6-64gb@oci@8c_2	180	39	80	40	339
 i9-9900k@3.6@w10pe              	202	36	73	29	340
 xeon-8272cl@e16ds_v4@azr        	187	37	79	38	341
+epyc-7j13@std-e4.flex-6-64gb@oci@4c_2	181	41	80	40	342
 epyc-7j13@std-e4.flex-6-64gb@oci	182	40	80	41	343
 i7-9700k@3.6@w10pe              	201	38	79	32	350
 xeon-8272cl@d16ds_v4@azr        	192	38	81	39	350
@@ -29,6 +34,7 @@ epyc-7j13@std-e4.flex-5-82gb@oci	198	44	87	45	374
 xeon-8370c@e16ds_v5@azr_w       	207	54	76	40	377
 ampere@std-a1-flex-8-48gb@oci   	201	44	91	48	384
 i7-7700@3.6@u20.04@r            	235	35	89	33	392
+epyc-7j13@std-e4.flex-4-32gb@oci@4c	226	44	95	43	408
 xeon-8272cl@e8ds_v4@azr         	240	40	94	40	414
 xeon-8370c@e8ds_v5@azr_w        	259	54	97	43	453
 xeon-8272cl@e16ds_v4@azr_w      	255	61	95	53	464
