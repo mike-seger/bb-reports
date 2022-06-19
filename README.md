@@ -1,5 +1,6 @@
 # bb-reports
 
+Generate the the comparison output from all directories containing a [build-bench](https://github.com/mike-seger/build-bench) report
 ```
 ./collect-stats.sh .
 ```
