@@ -17,6 +17,8 @@
       --row-hover: #202938;
       --row-selected: #243146;
       --shadow: rgba(0, 0, 0, 0.25);
+      --col-rank: 56px;
+      --col-system: 240px;
     }
 
     * { box-sizing: border-box; }
@@ -153,7 +155,6 @@
       border-collapse: separate;
       border-spacing: 0;
       font-size: 13px;
-      overflow: hidden;
     }
 
     thead th {
@@ -165,13 +166,49 @@
       position: sticky;
       top: 0;
       background: var(--panel);
-      z-index: 2;
+      z-index: 6;
+    }
+
+    thead th:first-child {
+      left: 0;
+      z-index: 4;
+    }
+
+    th.col-rank,
+    td.col-rank {
+      position: sticky;
+      left: 0;
+      min-width: var(--col-rank);
+      width: var(--col-rank);
+      background: var(--panel);
+      z-index: 10;
+    }
+
+    th.col-rank {
+      top: 0;
+      z-index: 12;
+    }
+
+    th.col-system,
+    td.col-system {
+      position: sticky;
+      left: var(--col-rank);
+      min-width: var(--col-system);
+      width: var(--col-system);
+      background: var(--panel);
+      z-index: 9;
+    }
+
+    th.col-system {
+      top: 0;
+      z-index: 11;
     }
 
     .table-scroll {
       flex: 1;
       min-height: 0;
       overflow: auto;
+      position: relative;
       border-radius: 10px;
       border: 1px solid #222b39;
     }
@@ -193,6 +230,11 @@
       border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
       white-space: nowrap;
     }
+
+    tbody tr:hover td.col-rank,
+    tbody tr:hover td.col-system { background: var(--row-hover); }
+    tbody tr.selected td.col-rank,
+    tbody tr.selected td.col-system { background: var(--row-selected); }
 
     td.system {
       font-weight: 600;
@@ -245,8 +287,8 @@
           <table>
             <thead>
               <tr>
-                <th>Rank</th>
-                <th>System</th>
+                <th class="col-rank">Rank</th>
+                <th class="col-system">System</th>
                 <th>Total</th>
                 <th>F</th>
                 <th>Dropwizard</th>
@@ -486,10 +528,11 @@
         if (selected.has(idx)) tr.classList.add("selected");
 
         const rankTd = document.createElement("td");
+        rankTd.className = "col-rank";
         rankTd.textContent = String(idx + 1);
 
         const nameTd = document.createElement("td");
-        nameTd.className = "system";
+        nameTd.className = "system col-system";
         const swatch = document.createElement("span");
         swatch.className = "swatch";
         swatch.style.background = getSwatchColor(idx);
