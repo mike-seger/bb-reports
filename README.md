@@ -5,13 +5,11 @@ Generate the the comparison output from all directories containing a [build-benc
 ./collect-stats.sh .
 ```
 
-## Examples
-https://docs.google.com/spreadsheets/d/1WHCGoTUk2woJ1g5LiIWqDq5geOGfwKTZzrrNM4uIT2A/edit?usp=sharing
+## View Report
 
-![build bench report](./build-bench.svg)
+In the repository root run:
+```
+python3 -m http.server 8081
+```
 
-
-## Links
-- https://docs.oracle.com/en-us/iaas/Content/GSG/Tasks/signingup_topic-Estimating_Costs.htm
-- https://www.oracle.com/cloud/costestimator.html
-- https://azure.microsoft.com/en-us/pricing/calculator/
+Open: [Build Bench Reports](http://localhost:8081/)
