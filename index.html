@@ -29,7 +29,10 @@
       font-family: "IBM Plex Sans", "SF Pro Text", "Segoe UI", sans-serif;
       color: var(--text);
       background: radial-gradient(1200px 600px at 10% -10%, #273046, #0e1117 65%);
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     a,
@@ -54,7 +57,7 @@
     header p {
       margin: 0;
       color: var(--muted);
-      max-width: 720px;
+      max-width: 90%;
       font-size: 14px;
     }
 
@@ -63,6 +66,8 @@
       grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
       gap: 18px;
       padding: 12px 18px 24px;
+      flex: 1;
+      min-height: 0;
     }
 
     @media (max-width: 980px) {
@@ -75,11 +80,16 @@
       padding: 16px;
       box-shadow: 0 16px 40px var(--shadow);
       border: 1px solid #1f2836;
+      height: 100%;
+      overflow: hidden;
     }
 
     #chartWrap {
       position: relative;
-      min-height: 480px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
 
     #chartTitle {
@@ -92,8 +102,9 @@
 
     canvas {
       width: 100% !important;
-      height: 100% !important;
-      max-height: 560px;
+      height: auto !important;
+      flex: 1;
+      max-height: none;
     }
 
     .toolbar {
@@ -128,7 +139,8 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      max-height: 680px;
+      height: 100%;
+      min-height: 0;
     }
 
     .stats {
@@ -157,7 +169,8 @@
     }
 
     .table-scroll {
-      max-height: 520px;
+      flex: 1;
+      min-height: 0;
       overflow: auto;
       border-radius: 10px;
       border: 1px solid #222b39;
@@ -320,6 +333,7 @@
         if (selected.size === 0) return;
         const ctx = chartInstance.ctx;
         const meta = chartInstance.getDatasetMeta(0);
+        const chartTop = chartInstance.chartArea.top;
         ctx.save();
         ctx.fillStyle = "#e7edf4";
         ctx.font = "12px IBM Plex Sans, SF Pro Text, Segoe UI, sans-serif";
@@ -336,7 +350,15 @@
           const barRight = bar.x + bar.width / 2;
           const tipY = bar.y;
           const baseX = barRight - bar.width / 2;
-          const baseY = tipY - bar.width;
+          let baseY = tipY - bar.width;
+          const textLen = ctx.measureText(label).width;
+          const halfLen = textLen / 2;
+          if (baseY - halfLen <= chartTop) {
+            const barBottom = bar.base ?? tipY;
+            const minCenter = tipY + halfLen + 2;
+            const maxCenter = barBottom - halfLen - 2;
+            baseY = Math.min(Math.max(minCenter, baseY), maxCenter);
+          }
 
           ctx.save();
           ctx.translate(baseX, baseY);
