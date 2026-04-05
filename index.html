@@ -20,6 +20,10 @@
     }
 
     * { box-sizing: border-box; }
+    html, body {
+      background-color: #0e1117;
+    }
+
     body {
       margin: 0;
       font-family: "IBM Plex Sans", "SF Pro Text", "Segoe UI", sans-serif;
@@ -230,11 +234,12 @@
               <tr>
                 <th>Rank</th>
                 <th>System</th>
+                <th>Total</th>
+                <th>F</th>
                 <th>Dropwizard</th>
                 <th>Maven</th>
                 <th>Metrics</th>
                 <th>Spring</th>
-                <th>Total</th>
               </tr>
             </thead>
             <tbody id="tableBody"></tbody>
@@ -303,13 +308,78 @@
     let lastClicked = null;
     let sortedRows = [];
     let colors = [];
+    let topTotal = 0;
     let chart = null;
 
     const tableBody = document.getElementById("tableBody");
     const statsText = document.getElementById("statsText");
 
+    const selectedLabelPlugin = {
+      id: "selectedLabels",
+      afterDatasetsDraw(chartInstance) {
+        if (selected.size === 0) return;
+        const ctx = chartInstance.ctx;
+        const meta = chartInstance.getDatasetMeta(0);
+        ctx.save();
+        ctx.fillStyle = "#e7edf4";
+        ctx.font = "12px IBM Plex Sans, SF Pro Text, Segoe UI, sans-serif";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.strokeStyle = "rgba(231, 237, 244, 0.55)";
+        ctx.lineWidth = 1;
+
+        selected.forEach(idx => {
+          const bar = meta.data[idx];
+          const row = sortedRows[idx];
+          const label = row ? formatLabel(row) : "";
+          if (!bar || !label) return;
+          const barRight = bar.x + bar.width / 2;
+          const tipY = bar.y;
+          const baseX = barRight - bar.width / 2;
+          const baseY = tipY - bar.width;
+
+          ctx.save();
+          ctx.translate(baseX, baseY);
+          ctx.rotate(-Math.PI / 2);
+          ctx.fillText(label, 0, 0);
+          ctx.restore();
+        });
+
+        ctx.restore();
+      }
+    };
+
     function updateStats() {
       statsText.textContent = `${sortedRows.length} systems • ${selected.size} selected`;
+    }
+
+    function applySelectionFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const systemsParam = params.get("systems");
+      if (!systemsParam) return;
+      const requested = systemsParam.split(",").map(s => s.trim()).filter(Boolean);
+      if (requested.length === 0) return;
+      selected.clear();
+      const indexBySystem = new Map(sortedRows.map((row, idx) => [row.system, idx]));
+      requested.forEach(name => {
+        const idx = indexBySystem.get(name);
+        if (idx !== undefined) selected.add(idx);
+      });
+    }
+
+    function syncUrlWithSelection() {
+      const params = new URLSearchParams(window.location.search);
+      if (selected.size === 0) {
+        params.delete("systems");
+      } else {
+        const names = Array.from(selected)
+          .sort((a, b) => a - b)
+          .map(idx => sortedRows[idx]?.system)
+          .filter(Boolean);
+        params.set("systems", names.join(","));
+      }
+      const newUrl = `${window.location.pathname}${params.toString() ? `?${params}` : ""}`;
+      window.history.replaceState(null, "", newUrl);
     }
 
     function buildChart() {
@@ -317,6 +387,7 @@
       if (chart) chart.destroy();
       chart = new Chart(ctx, {
         type: "bar",
+        plugins: [selectedLabelPlugin],
         data: {
           labels: sortedRows.map(r => r.system),
           datasets: [{
@@ -402,11 +473,12 @@
 
         tr.appendChild(rankTd);
         tr.appendChild(nameTd);
+        tr.appendChild(makeTd(row.total));
+        tr.appendChild(makeTd(formatF(row.total)));
         tr.appendChild(makeTd(row.dropwizard));
         tr.appendChild(makeTd(row.maven));
         tr.appendChild(makeTd(row.metrics));
         tr.appendChild(makeTd(row.spring));
-        tr.appendChild(makeTd(row.total));
 
         tr.addEventListener("click", event => handleRowClick(event, idx));
         tableBody.appendChild(tr);
@@ -439,6 +511,16 @@
       return td;
     }
 
+    function formatF(total) {
+      if (!topTotal || !total) return "";
+      return (topTotal / total).toFixed(2);
+    }
+
+    function formatLabel(row) {
+      const fValue = formatF(row.total);
+      return `${row.system} - ${row.total}s - F=${fValue}`;
+    }
+
     function handleRowClick(event, idx) {
       if (event.shiftKey && lastClicked !== null) {
         const start = Math.min(lastClicked, idx);
@@ -452,6 +534,7 @@
       lastClicked = idx;
       updateHighlight();
       renderTable(document.getElementById("filterInput").value);
+      syncUrlWithSelection();
     }
 
     function updateHighlight() {
@@ -478,6 +561,7 @@
       lastClicked = null;
       updateHighlight();
       renderTable(document.getElementById("filterInput").value);
+      syncUrlWithSelection();
     });
 
     loadData().then(text => {
@@ -487,14 +571,17 @@
       }
       const { rows } = parseTSV(text);
       sortedRows = [...rows].sort((a, b) => a.total - b.total);
+      topTotal = sortedRows.length > 0 ? sortedRows[0].total : 0;
       colors = sortedRows.map((row, idx) => {
         const color = colorForIndex(idx, sortedRows.length);
         row.color = color;
         return color;
       });
+      applySelectionFromUrl();
       buildChart();
       renderTable();
       updateStats();
+      updateHighlight();
     });
   </script>
 </body>
