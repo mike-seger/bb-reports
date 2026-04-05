@@ -12,4 +12,10 @@ In the repository root run:
 python3 -m http.server 8081
 ```
 
-Open: [Build Bench Reports](http://localhost:8081/)
+then open: [Build Bench Reports](http://localhost:8081/)
+
+It should look look similar to this:
+![alt text](image.png)
+
+A prepared version based on existing data can be found here:  
+https://mike-seger.github.io/bb-reports/
