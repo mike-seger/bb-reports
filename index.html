@@ -28,6 +28,14 @@
       min-height: 100vh;
     }
 
+    a,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus {
+      color: var(--focus);
+    }
+
     header {
       padding: 24px 28px 12px;
     }
@@ -200,7 +208,7 @@
 <body>
   <header>
     <h1>Build Bench</h1>
-    <p>Interactive view of aggregated build stats. Select rows to highlight systems in the chart.</p>
+    <p>System comparison between systems running software builds of selected OSS projects, see <a href="https://github.com/mike-seger/build-bench">Build Bench</a> for details.<br>Select rows to highlight systems in the chart.</p>
   </header>
 
   <section class="layout">
@@ -285,6 +293,9 @@
     }
 
     function colorWithAlpha(color, alpha) {
+      if (color.startsWith("rgb(")) {
+        return color.replace("rgb(", "rgba(").replace(")", `, ${alpha})`);
+      }
       return color.replace("hsl(", "hsla(").replace(")", `, ${alpha})`);
     }
 
@@ -325,13 +336,22 @@
           scales: {
             x: {
               grid: { display: false },
-              ticks: { display: false }
+              ticks: { display: false },
+              title: {
+                display: true,
+                text: "System",
+                color: "#a8b2bf",
+                padding: { top: 10 }
+              }
             },
             y: {
               grid: { color: "#2b3442" },
-              ticks: {
+              ticks: { color: "#a8b2bf" },
+              title: {
+                display: true,
+                text: "Time (s)",
                 color: "#a8b2bf",
-                callback: value => `${value}s`
+                padding: { bottom: 10 }
               }
             }
           },
@@ -376,7 +396,7 @@
         nameTd.className = "system";
         const swatch = document.createElement("span");
         swatch.className = "swatch";
-        swatch.style.background = colors[idx];
+        swatch.style.background = getSwatchColor(idx);
         nameTd.appendChild(swatch);
         nameTd.appendChild(document.createTextNode(row.system));
 
@@ -393,6 +413,24 @@
       });
 
       updateStats();
+    }
+
+    function getSwatchColor(idx) {
+      if (chart && chart.data && chart.data.datasets && chart.data.datasets[0]) {
+        const dataset = chart.data.datasets[0];
+        const bg = Array.isArray(dataset.backgroundColor) ? dataset.backgroundColor[idx] : null;
+        const border = Array.isArray(dataset.borderColor) ? dataset.borderColor[idx] : null;
+        return toOpaque(border || bg || colors[idx] || "rgb(0, 255, 0)");
+      }
+      return toOpaque(colors[idx] || "rgb(0, 255, 0)");
+    }
+
+    function toOpaque(color) {
+      if (typeof color !== "string") return color;
+      if (color.startsWith("rgba(")) {
+        return color.replace("rgba(", "rgb(").replace(/,\s*[^,]+\)$/, ")");
+      }
+      return color;
     }
 
     function makeTd(value) {
@@ -449,7 +487,11 @@
       }
       const { rows } = parseTSV(text);
       sortedRows = [...rows].sort((a, b) => a.total - b.total);
-      colors = sortedRows.map((_, idx) => colorForIndex(idx, sortedRows.length));
+      colors = sortedRows.map((row, idx) => {
+        const color = colorForIndex(idx, sortedRows.length);
+        row.color = color;
+        return color;
+      });
       buildChart();
       renderTable();
       updateStats();
