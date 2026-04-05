@@ -352,12 +352,15 @@
           const baseX = barRight - bar.width / 2;
           let baseY = tipY - bar.width;
           const textLen = ctx.measureText(label).width;
-          const halfLen = textLen / 2;
-          if (baseY - halfLen <= chartTop) {
+          if (baseY - textLen <= chartTop) {
             const barBottom = bar.base ?? tipY;
-            const minCenter = tipY + halfLen + 2;
-            const maxCenter = barBottom - halfLen - 2;
-            baseY = Math.min(Math.max(minCenter, baseY), maxCenter);
+            const minBaseY = Math.max(tipY + textLen + 2, chartTop + textLen + 2);
+            const maxBaseY = barBottom - 2;
+            if (minBaseY <= maxBaseY) {
+              baseY = Math.min(Math.max(baseY, minBaseY), maxBaseY);
+            } else {
+              baseY = maxBaseY;
+            }
           }
 
           ctx.save();
