@@ -1,0 +1,24 @@
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T193412_c0.txt: SUCCESS : 336 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T195013_c0.txt: SUCCESS : 257 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T200049_c0.txt: SUCCESS : 205 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T200939_c0.txt: SUCCESS : 252 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T202122_c0.txt: SUCCESS : 211 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_dropwizard-2.0.22_20260327T203040_c0.txt: SUCCESS : 230 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T192747_c0.txt: SUCCESS : 382 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T194838_c0.txt: SUCCESS : 92 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T195902_c0.txt: SUCCESS : 102 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T200757_c0.txt: SUCCESS : 95 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T201913_c0.txt: SUCCESS : 121 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_maven-maven-3.8.1_20260327T202851_c0.txt: SUCCESS : 102 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T193950_c0.txt: SUCCESS : 172 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T195433_c0.txt: SUCCESS : 171 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T200421_c0.txt: SUCCESS : 128 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T201359_c0.txt: SUCCESS : 180 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T202502_c0.txt: SUCCESS : 128 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_metrics-4.1.22_20260327T203441_c0.txt: : 100 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T194244_c0.txt: SUCCESS : 350 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T195728_c0.txt: SUCCESS : 89 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T200635_c0.txt: SUCCESS : 73 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T201706_c0.txt: SUCCESS : 115 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T202720_c0.txt: SUCCESS : 81 s 
+reports/run_mingw64-nt-10.0-26200-3.6.6-1cdd4371.x86-64_spring-data-jdbc-2.2.1_20260327T203636_c0.txt: SUCCESS : 83 s 

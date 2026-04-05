@@ -1,0 +1,18 @@
+# Java Version
+# Maven Version
+Downloading https://repo1.maven.org/maven2/org/apache/maven/apache-maven/3.8.1/apache-maven-3.8.1-bin.zip
+.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping C:\Users\hkase\.m2\wrapper\dists\apache-maven-3.8.1-bin\5jr7905sp869ck60ofuug4vpod\apache-maven-3.8.1-bin.zip to C:\Users\hkase\.m2\wrapper\dists\apache-maven-3.8.1-bin\5jr7905sp869ck60ofuug4vpod
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: C:\Users\hkase\.m2\wrapper\dists\apache-maven-3.8.1-bin\5jr7905sp869ck60ofuug4vpod\apache-maven-3.8.1
+Java version: 11.0.30, vendor: BellSoft, runtime: C:\Users\hkase\.sdkman\candidates\java\current
+Default locale: de_CH, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+# CPU Info
+model name	: AMD Ryzen 7 7735HS with Radeon Graphics        
+# Memory Info
+MemTotal:       32344664 kB
+# Disk Free
+Filesystem      Size  Used Avail Use% Mounted on
+C:              952G   95G  857G  10% /c
+#

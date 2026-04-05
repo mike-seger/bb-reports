@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Bench Report</title>
+  <style>
+    :root {
+      --bg: #0f1216;
+      --panel: #151a21;
+      --panel-2: #1b2230;
+      --text: #e7edf4;
+      --muted: #a8b2bf;
+      --grid: #2b3442;
+      --accent: #ff8a3d;
+      --focus: #66c2ff;
+      --row-hover: #202938;
+      --row-selected: #243146;
+      --shadow: rgba(0, 0, 0, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "SF Pro Text", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #273046, #0e1117 65%);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 24px 28px 12px;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 12px 18px 24px;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 16px 40px var(--shadow);
+      border: 1px solid #1f2836;
+    }
+
+    #chartWrap {
+      position: relative;
+      min-height: 480px;
+    }
+
+    #chartTitle {
+      margin: 4px 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 560px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 6px 0 10px;
+    }
+
+    .toolbar input {
+      flex: 1 1 260px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #2b3442;
+      background: #10151f;
+      color: var(--text);
+    }
+
+    .toolbar button {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #2b3442;
+      background: #111821;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .toolbar button:hover { border-color: var(--accent); }
+
+    .table-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 680px;
+    }
+
+    .stats {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      overflow: hidden;
+    }
+
+    thead th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--grid);
+      padding: 8px 6px;
+      position: sticky;
+      top: 0;
+      background: var(--panel);
+      z-index: 2;
+    }
+
+    .table-scroll {
+      max-height: 520px;
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid #222b39;
+    }
+
+    tbody tr {
+      cursor: pointer;
+      transition: background 120ms ease;
+    }
+
+    tbody tr:hover { background: var(--row-hover); }
+
+    tbody tr.selected {
+      background: var(--row-selected);
+      outline: 1px solid rgba(102, 194, 255, 0.3);
+    }
+
+    td {
+      padding: 6px 6px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+    }
+
+    td.system {
+      font-weight: 600;
+      color: var(--text);
+      white-space: normal;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Build Bench</h1>
+    <p>Interactive view of aggregated build stats. Select rows to highlight systems in the chart.</p>
+  </header>
+
+  <section class="layout">
+    <div class="panel" id="chartWrap">
+      <div id="chartTitle">Build Time (total)</div>
+      <canvas id="benchChart"></canvas>
+    </div>
+
+    <div class="panel">
+      <div class="table-wrap">
+        <div class="toolbar">
+          <input id="filterInput" type="search" placeholder="Filter system name" />
+          <button id="clearSelection" type="button">Clear selection</button>
+        </div>
+        <div class="stats" id="statsText"></div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>System</th>
+                <th>Dropwizard</th>
+                <th>Maven</th>
+                <th>Metrics</th>
+                <th>Spring</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div class="hint">Tip: Click rows to toggle highlight. Use Shift+Click to select a range.</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const dataUrl = "allstats.txt";
+    const fallbackText = "";
+
+    function parseTSV(text) {
+      const lines = text.trim().split(/\n+/);
+      const header = lines[0].split(/\t+/).map(s => s.trim());
+      const rows = lines.slice(1).map(line => {
+        const cols = line.split(/\t+/).map(s => s.trim());
+        return {
+          system: cols[0],
+          dropwizard: Number(cols[1]),
+          maven: Number(cols[2]),
+          metrics: Number(cols[3]),
+          spring: Number(cols[4]),
+          total: Number(cols[5])
+        };
+      });
+      return { header, rows };
+    }
+
+    function colorForIndex(idx, total) {
+      const hue = (idx * 360 / Math.max(total, 1)) % 360;
+      return `hsl(${hue}, 72%, 55%)`;
+    }
+
+    function colorWithAlpha(color, alpha) {
+      return color.replace("hsl(", "hsla(").replace(")", `, ${alpha})`);
+    }
+
+    const selected = new Set();
+    let lastClicked = null;
+    let sortedRows = [];
+    let colors = [];
+    let chart = null;
+
+    const tableBody = document.getElementById("tableBody");
+    const statsText = document.getElementById("statsText");
+
+    function updateStats() {
+      statsText.textContent = `${sortedRows.length} systems • ${selected.size} selected`;
+    }
+
+    function buildChart() {
+      const ctx = document.getElementById("benchChart").getContext("2d");
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: sortedRows.map(r => r.system),
+          datasets: [{
+            label: "Total",
+            data: sortedRows.map(r => r.total),
+            backgroundColor: colors.map(c => colorWithAlpha(c, 0.55)),
+            borderColor: colors,
+            borderWidth: 1.2,
+            borderRadius: 6,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 500 },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { display: false }
+            },
+            y: {
+              grid: { color: "#2b3442" },
+              ticks: {
+                color: "#a8b2bf",
+                callback: value => `${value}s`
+              }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.raw}s`
+              }
+            }
+          }
+        }
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(dataUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.text();
+      } catch (error) {
+        console.warn("Failed to load allstats.txt", error);
+        return fallbackText;
+      }
+    }
+
+    function renderTable(filterText = "") {
+      tableBody.innerHTML = "";
+      const filter = filterText.trim().toLowerCase();
+
+      sortedRows.forEach((row, idx) => {
+        if (filter && !row.system.toLowerCase().includes(filter)) return;
+
+        const tr = document.createElement("tr");
+        tr.dataset.index = String(idx);
+        if (selected.has(idx)) tr.classList.add("selected");
+
+        const rankTd = document.createElement("td");
+        rankTd.textContent = String(idx + 1);
+
+        const nameTd = document.createElement("td");
+        nameTd.className = "system";
+        const swatch = document.createElement("span");
+        swatch.className = "swatch";
+        swatch.style.background = colors[idx];
+        nameTd.appendChild(swatch);
+        nameTd.appendChild(document.createTextNode(row.system));
+
+        tr.appendChild(rankTd);
+        tr.appendChild(nameTd);
+        tr.appendChild(makeTd(row.dropwizard));
+        tr.appendChild(makeTd(row.maven));
+        tr.appendChild(makeTd(row.metrics));
+        tr.appendChild(makeTd(row.spring));
+        tr.appendChild(makeTd(row.total));
+
+        tr.addEventListener("click", event => handleRowClick(event, idx));
+        tableBody.appendChild(tr);
+      });
+
+      updateStats();
+    }
+
+    function makeTd(value) {
+      const td = document.createElement("td");
+      td.textContent = value;
+      return td;
+    }
+
+    function handleRowClick(event, idx) {
+      if (event.shiftKey && lastClicked !== null) {
+        const start = Math.min(lastClicked, idx);
+        const end = Math.max(lastClicked, idx);
+        for (let i = start; i <= end; i += 1) selected.add(i);
+      } else if (selected.has(idx)) {
+        selected.delete(idx);
+      } else {
+        selected.add(idx);
+      }
+      lastClicked = idx;
+      updateHighlight();
+      renderTable(document.getElementById("filterInput").value);
+    }
+
+    function updateHighlight() {
+      const bg = colors.map((c, idx) => {
+        if (selected.size === 0) return colorWithAlpha(c, 0.55);
+        return selected.has(idx) ? colorWithAlpha(c, 0.85) : colorWithAlpha(c, 0.15);
+      });
+      const border = colors.map((c, idx) => {
+        if (selected.size === 0) return c;
+        return selected.has(idx) ? c : colorWithAlpha(c, 0.25);
+      });
+      if (!chart) return;
+      chart.data.datasets[0].backgroundColor = bg;
+      chart.data.datasets[0].borderColor = border;
+      chart.update();
+    }
+
+    document.getElementById("filterInput").addEventListener("input", event => {
+      renderTable(event.target.value);
+    });
+
+    document.getElementById("clearSelection").addEventListener("click", () => {
+      selected.clear();
+      lastClicked = null;
+      updateHighlight();
+      renderTable(document.getElementById("filterInput").value);
+    });
+
+    loadData().then(text => {
+      if (!text.trim()) {
+        statsText.textContent = "Failed to load allstats.txt";
+        return;
+      }
+      const { rows } = parseTSV(text);
+      sortedRows = [...rows].sort((a, b) => a.total - b.total);
+      colors = sortedRows.map((_, idx) => colorForIndex(idx, sortedRows.length));
+      buildChart();
+      renderTable();
+      updateStats();
+    });
+  </script>
+</body>
+</html>
