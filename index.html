@@ -105,6 +105,11 @@
       font-size: 14px;
     }
 
+    header span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .layout {
       display: flex;
       flex-direction: column;
@@ -299,7 +304,7 @@
 <body>
   <header>
     <h1>Build Bench Reports</h1>
-
+    <span>For details, see <a href="https://github.com/mike-seger/build-bench">Build Bench</a> and <a href="https://mike-seger.github.io/bb-reports/">BB Reports</a>.</span>
   </header>
 
   <section class="layout">
@@ -308,7 +313,6 @@
         <div class="toolbar">
           <input id="filterInput" type="search" placeholder="Filter system name" />
           <button id="clearSelection" type="button">Clear selection</button>
-           For details, see <a href="https://github.com/mike-seger/build-bench">Build Bench</a> and <a href="https://mike-seger.github.io/bb-reports/">BB Reports</a>.
         </div>
         <div class="table-scroll">
           <table>
