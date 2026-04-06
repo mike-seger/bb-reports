@@ -153,6 +153,7 @@
 
     .toolbar input {
       flex: 1 1 260px;
+      max-width: 400px;
       padding: 8px 10px;
       border-radius: 10px;
       border: 1px solid #2b3442;
@@ -187,7 +188,7 @@
     }
 
     table {
-      width: 100%;
+      width: auto;
       border-collapse: separate;
       border-spacing: 0;
       font-size: 13px;
@@ -225,8 +226,6 @@
     td.col-system {
       position: sticky;
       left: var(--col-rank);
-      min-width: var(--col-system);
-      width: var(--col-system);
       background: var(--panel);
       z-index: 9;
     }
@@ -243,6 +242,8 @@
       position: relative;
       border-radius: 6px;
       border: 1px solid #222b39;
+      width: fit-content;
+      max-width: 100%;
     }
 
     tbody tr {
