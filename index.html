@@ -35,6 +35,17 @@
       }
     }
 
+    @media (max-height: 1068px) {
+      body {
+        height: auto;
+        overflow-y: auto;
+      }
+      .panel {
+        flex: none;
+        height: 500px;
+      }
+    }
+
     * { box-sizing: border-box; }
     html, body {
       background-color: #0e1117;
@@ -627,12 +638,11 @@
 
     function updateHighlight() {
       const bg = colors.map((c, idx) => {
-        if (selected.size === 0) return colorWithAlpha(c, 0.55);
-        return selected.has(idx) ? colorWithAlpha(c, 0.85) : colorWithAlpha(c, 0.15);
+        if (selected.size === 0 || !selected.has(idx)) return colorWithAlpha(c, 0.55);
+        return colorWithAlpha(c, 0.85);
       });
       const border = colors.map((c, idx) => {
-        if (selected.size === 0) return c;
-        return selected.has(idx) ? c : colorWithAlpha(c, 0.25);
+        return c;
       });
       if (!chart) return;
       chart.data.datasets[0].backgroundColor = bg;
