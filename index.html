@@ -63,14 +63,15 @@
     }
 
     header {
-      padding: 24px 28px 12px;
+      padding: 8px 12px 4px;
     }
 
     header h1 {
       margin: 0 0 6px;
-      font-size: 24px;
+      font-size: clamp(12px, 5vw, 24px);
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     header p {
@@ -83,21 +84,17 @@
     .layout {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      padding: 12px 18px 24px;
+      gap: 6px;
+      padding: 4px 12px 12px;
       flex: 1;
       min-height: 0;
     }
 
     .panel {
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 16px 40px var(--shadow);
-      border: 1px solid #1f2836;
       flex: 1;
       min-height: 0;
       overflow: hidden;
+      padding: 4px 0;
     }
 
     #chartWrap {
@@ -125,10 +122,9 @@
 
     .toolbar {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 8px;
       align-items: center;
-      margin: 6px 0 10px;
+      margin: 0 0 4px;
     }
 
     .toolbar input {
@@ -154,7 +150,7 @@
     .table-wrap {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 4px;
       height: 100%;
       min-height: 0;
     }
@@ -219,7 +215,7 @@
       min-height: 0;
       overflow: auto;
       position: relative;
-      border-radius: 10px;
+      border-radius: 6px;
       border: 1px solid #222b39;
     }
 
@@ -286,7 +282,6 @@
           <input id="filterInput" type="search" placeholder="Filter system name" />
           <button id="clearSelection" type="button">Clear selection</button>
         </div>
-        <div class="stats" id="statsText"></div>
         <div class="table-scroll">
           <table>
             <thead>
@@ -304,7 +299,7 @@
             <tbody id="tableBody"></tbody>
           </table>
         </div>
-        <div class="hint">Tip: Click rows to toggle highlight. Use Shift+Click to select a range.</div>
+
       </div>
     </div>
 
@@ -425,9 +420,7 @@
       }
     };
 
-    function updateStats() {
-      statsText.textContent = `${sortedRows.length} systems • ${selected.size} selected`;
-    }
+    function updateStats() {}
 
     function applySelectionFromUrl() {
       const params = new URLSearchParams(window.location.search);
