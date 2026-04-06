@@ -22,6 +22,10 @@
       --col-system: 240px;
     }
 
+    @media (max-width: 600px) {
+      :root { --col-system: 130px; }
+    }
+
     * { box-sizing: border-box; }
     html, body {
       background-color: #0e1117;
@@ -67,7 +71,7 @@
     }
 
     header h1 {
-      margin: 0 0 6px;
+      margin: 0;
       font-size: clamp(12px, 5vw, 24px);
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -143,6 +147,8 @@
       background: #111821;
       color: var(--text);
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .toolbar button:hover { border-color: var(--accent); }
