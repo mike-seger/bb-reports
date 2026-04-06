@@ -115,15 +115,15 @@
     }
 
     .panel {
-      flex: 1;
+      flex: 3;
       min-height: 0;
       overflow: hidden;
       padding: 4px 0;
     }
 
     #chartWrap {
+      flex: 7;
       position: relative;
-      height: 100%;
       display: flex;
       flex-direction: column;
       min-height: 0;
@@ -314,12 +314,12 @@
               <tr>
                 <th class="col-rank">#</th>
                 <th class="col-system">System</th>
-                <th>Total</th>
-                <th>F</th>
-                <th>Dropw.</th>
-                <th>Maven</th>
-                <th>Metrics</th>
-                <th>Spring</th>
+                <th>Rel. %</th>
+                <th>Total (s)</th>
+                <th>Dropwiz (s)</th>
+                <th>Maven (s)</th>
+                <th>Metrics (s)</th>
+                <th>Spring (s)</th>
               </tr>
             </thead>
             <tbody id="tableBody"></tbody>
@@ -330,7 +330,7 @@
     </div>
 
     <div class="panel" id="chartWrap">
-      <div id="chartTitle">Build Time (total)</div>
+      <div id="chartTitle">Performance %</div>
       <canvas id="benchChart"></canvas>
     </div>
   </section>
@@ -487,7 +487,7 @@
           labels: sortedRows.map(r => r.system),
           datasets: [{
             label: "Total",
-            data: sortedRows.map(r => r.total),
+            data: sortedRows.map(r => Math.round((topTotal / r.total) * 100)),
             backgroundColor: colors.map(c => colorWithAlpha(c, 0.55)),
             borderColor: colors,
             borderWidth: 1.2,
@@ -514,13 +514,7 @@
               grid: { color: "#2b3442" },
               ticks: {
                 color: "#a8b2bf",
-                callback: function(value) { return value; }
-              },
-              title: {
-                display: true,
-                text: "Time (s)",
-                color: "#a8b2bf",
-                padding: { bottom: 10 }
+                callback: function(value) { return value + "%"; }
               }
             }
           },
@@ -528,7 +522,7 @@
             legend: { display: false },
             tooltip: {
               callbacks: {
-                label: ctx => `${ctx.raw}s`
+                label: ctx => `${ctx.raw}%`
               }
             }
           }
@@ -572,8 +566,8 @@
 
         tr.appendChild(rankTd);
         tr.appendChild(nameTd);
-        tr.appendChild(makeTd(row.total));
         tr.appendChild(makeTd(formatF(row.total)));
+        tr.appendChild(makeTd(row.total));
         tr.appendChild(makeTd(row.dropwizard));
         tr.appendChild(makeTd(row.maven));
         tr.appendChild(makeTd(row.metrics));
@@ -612,12 +606,11 @@
 
     function formatF(total) {
       if (!topTotal || !total) return "";
-      return (topTotal / total).toFixed(2);
+      return Math.round((topTotal / total) * 100);
     }
 
     function formatLabel(row) {
-      const fValue = formatF(row.total);
-      return `${row.system} - ${row.total}s - F=${fValue}`;
+      return `${row.system} - ${formatF(row.total)}%`;
     }
 
     function handleRowClick(event, idx) {
@@ -637,13 +630,8 @@
     }
 
     function updateHighlight() {
-      const bg = colors.map((c, idx) => {
-        if (selected.size === 0 || !selected.has(idx)) return colorWithAlpha(c, 0.55);
-        return colorWithAlpha(c, 0.85);
-      });
-      const border = colors.map((c, idx) => {
-        return c;
-      });
+      const bg = colors.map(c => colorWithAlpha(c, 0.55));
+      const border = colors.map(c => c);
       if (!chart) return;
       chart.data.datasets[0].backgroundColor = bg;
       chart.data.datasets[0].borderColor = border;
