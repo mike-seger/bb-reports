@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Build Bench Report</title>
   <style>
     :root {
@@ -57,7 +57,12 @@
       color: var(--text);
       background: radial-gradient(1200px 600px at 10% -10%, #273046, #0e1117 65%);
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
       display: flex;
       flex-direction: column;
     }
