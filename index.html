@@ -132,7 +132,7 @@
     }
 
     #chartWrap {
-      flex: 7;
+      flex: 3;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -304,13 +304,64 @@
       color: var(--muted);
       font-size: 12px;
     }
+
+    .info-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 0 0 6px;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .info-btn:hover { color: var(--focus); }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.open { display: flex; }
+    .overlay-content {
+      background: var(--panel-2);
+      border: 1px solid var(--grid);
+      border-radius: 12px;
+      padding: 20px 24px;
+      max-width: 360px;
+      color: var(--text);
+      font-size: 14px;
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+    .overlay-content p { margin: 0 0 16px; }
+    .overlay-close {
+      display: block;
+      margin-left: auto;
+      padding: 6px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--grid);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .overlay-close:hover { border-color: var(--accent); }
   </style>
 </head>
 <body>
   <header>
-    <h1>Build Bench Reports</h1>
-    <span>For details, see <a href="https://github.com/mike-seger/build-bench">Build Bench</a> and <a href="https://mike-seger.github.io/bb-reports/">BB Reports</a>.</span>
+    <h1>Build Bench Reports<button class="info-btn" id="infoBtn" aria-label="Info">&#9432;</button></h1>
   </header>
+
+  <div class="overlay" id="infoOverlay">
+    <div class="overlay-content">
+      <p>For details, see <a href="https://github.com/mike-seger/build-bench">Build Bench</a> and <a href="https://mike-seger.github.io/bb-reports/">BB Reports</a>.</p>
+      <button class="overlay-close" id="infoClose">Close</button>
+    </div>
+  </div>
 
   <section class="layout">
     <div class="panel">
@@ -348,6 +399,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
+    document.getElementById("infoBtn").addEventListener("click", () =>
+      document.getElementById("infoOverlay").classList.add("open"));
+    document.getElementById("infoClose").addEventListener("click", () =>
+      document.getElementById("infoOverlay").classList.remove("open"));
+    document.getElementById("infoOverlay").addEventListener("click", e => {
+      if (e.target === e.currentTarget) e.currentTarget.classList.remove("open");
+    });
+
     const dataUrl = "allstats.txt";
     const fallbackText = "";
 
